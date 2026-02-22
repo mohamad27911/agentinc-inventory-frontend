@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #0a0a0f;
+  --color-background-secondary: #12121a;
+  --color-background-tertiary: #1a1a2e;
+  --color-foreground: #e8e8e8;
+  --color-foreground-muted: #a0a0b0;
+
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4af37;
+  --color-gold-dark: #b8973e;
+  --color-champagne: #e8d5b7;
+
+  --color-border: #2a2a3e;
+  --color-border-hover: #3a3a4e;
+
+  --color-card: #12121a;
+  --color-card-hover: #1a1a2e;
+
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  --color-input: #1a1a2e;
+  --color-input-border: #2a2a3e;
+  --color-input-focus: #c9a84c;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+button {
+  cursor: pointer;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
 }
