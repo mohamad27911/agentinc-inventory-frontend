@@ -22,6 +22,7 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const { page, pageSize } = getPaginationParams(searchParams);
     const entityType = searchParams.get('entity_type');
+    const entityId = searchParams.get('entity_id');
     const action = searchParams.get('action');
     const startDate = searchParams.get('start_date');
     const endDate = searchParams.get('end_date');
@@ -32,6 +33,10 @@ export async function GET(request: NextRequest) {
 
     if (entityType) {
       query = query.eq('entity_type', entityType);
+    }
+
+    if (entityId) {
+      query = query.eq('entity_id', entityId);
     }
 
     if (action) {

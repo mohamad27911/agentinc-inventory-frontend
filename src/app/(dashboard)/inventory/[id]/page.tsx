@@ -48,11 +48,10 @@ export default function InventoryItemPage() {
   }, [id, router]);
 
   const fetchAuditLogs = useCallback(async () => {
-    const res = await fetch(`/api/audit?entity_type=inventory_item&pageSize=50`);
+    const res = await fetch(`/api/audit?entity_type=inventory_item&entity_id=${id}&pageSize=50`);
     if (res.ok) {
       const data = await res.json();
-      const filtered = (data.data || []).filter((log: AuditLog) => log.entity_id === id);
-      setAuditLogs(filtered);
+      setAuditLogs(data.data || []);
     }
   }, [id]);
 
