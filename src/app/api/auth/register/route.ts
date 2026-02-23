@@ -14,10 +14,16 @@ export async function POST(request: NextRequest) {
 
     const supabase = await createClient();
 
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ||
+      `https://${process.env.VERCEL_URL}` ||
+      'http://localhost:3000';
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
+        emailRedirectTo: `${siteUrl}/auth/callback`,
         data: {
           full_name,
         },
